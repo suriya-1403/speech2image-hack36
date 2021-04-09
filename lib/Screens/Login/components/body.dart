@@ -1,15 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:speech2image/Screens/Home/HomeScreen.dart';
+// import 'package:speech2image/Screens/Home/HomeScreen.dart';
 import 'package:speech2image/Screens/Login/components/background.dart';
 import 'package:speech2image/Screens/SignUp/SignUpScreen.dart';
-import 'package:speech2image/Screens/Speech2Text/Speech2TextScreen.dart';
+// import 'package:speech2image/Screens/Speech2Text/Speech2TextScreen.dart';
+import 'package:speech2image/Screens/SpeechDect/speechreg.dart';
 // import 'package:speech2image/Screens/Speech2Text/components/body.dart';
 import 'package:speech2image/components/AlreadyHaveDoestHave.dart';
 import 'package:speech2image/components/RoundedInputField.dart';
 import 'package:speech2image/components/RoundedPassInputField.dart';
 import 'package:speech2image/components/roundedButton.dart';
+
+import '../../../main.dart';
 
 class Body extends StatelessWidget {
   String email = '', password = '';
@@ -57,7 +60,7 @@ class Body extends StatelessWidget {
                       .signInWithEmailAndPassword(
                           email: email, password: password);
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return speech2text();
+                    return MyAppA();
                   }));
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'user-not-found') {

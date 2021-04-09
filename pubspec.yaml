@@ -36,6 +36,10 @@ dependencies:
   speech_to_text: ^2.7.0
   highlight_text: ^1.0.0
   avatar_glow: ^2.0.1
+  # url_launcher: ^5.7.10
+  clipboard: ^0.1.2+8
+  url_launcher: ^6.0.3
+  speech_recognition: ^0.3.0+1
 
 dev_dependencies:
   flutter_test:
