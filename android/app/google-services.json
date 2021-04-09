@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "896558113416",
+    "project_id": "hack36-2210f",
+    "storage_bucket": "hack36-2210f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896558113416:android:6c174f1598bf7dbecab53d",
+        "android_client_info": {
+          "package_name": "com.example.speech2image"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896558113416-bai3bchbaf371ti832c2v8rpars8ktjl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVbQleW_smOujlYDWzFQ2-MO5l0Gi5yY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896558113416-bai3bchbaf371ti832c2v8rpars8ktjl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "896558113416-5rc0b92h1q7a958c4i06fm4ujmlrdmi1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.speech2image"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
