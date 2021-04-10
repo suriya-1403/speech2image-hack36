@@ -40,6 +40,7 @@ dependencies:
   clipboard: ^0.1.2+8
   url_launcher: ^6.0.3
   speech_recognition: ^0.3.0+1
+  http: ^0.13.1
 
 dev_dependencies:
   flutter_test:

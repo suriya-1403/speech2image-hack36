@@ -1,6 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:speech2image/constants.dart';
 import 'package:speech_recognition/speech_recognition.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class MyAppA extends StatelessWidget {
   @override
@@ -73,9 +75,9 @@ class _VoiceHomeState extends State<VoiceHome> {
                     if (_isListening)
                       _speechRecognition.cancel().then(
                             (result) => setState(() {
-                                  _isListening = result;
-                                  resultText = "";
-                                }),
+                              _isListening = result;
+                              resultText = "";
+                            }),
                           );
                   },
                 ),
@@ -116,6 +118,26 @@ class _VoiceHomeState extends State<VoiceHome> {
                 resultText,
                 style: TextStyle(fontSize: 24.0),
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  onPressed: () async {
+                    //validating the form and saving it
+                    _savingData();
+
+                    //url to send the post request to
+                    final url = 'http://127.0.0.1:5000/name';
+
+                    //sending a post request to the url
+                    final response = await http.post(Uri.parse(url),
+                        body: json.encode({'name': name}));
+                  },
+                  child: Text("Send Text to Database"),
+                  color: kPrimaryLightColor,
+                )
+              ],
             )
           ],
         ),
