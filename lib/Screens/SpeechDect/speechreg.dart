@@ -23,15 +23,21 @@ class _VoiceHomeState extends State<VoiceHome> {
   SpeechRecognition _speechRecognition;
   bool _isAvailable = false;
   bool _isListening = false;
-
-  String resultText = "";
+  final _formkey = GlobalKey<FormState>();
+  String resultText = "Tiger bites rabbit";
 
   @override
   void initState() {
     super.initState();
     initSpeechRecognizer();
   }
-
+  Future<void> _savingData() async{
+      final validation = _formkey.currentState.validate();
+      if (!validation){
+        return;
+      }
+      _formkey.currentState.save();
+    }
   void initSpeechRecognizer() {
     _speechRecognition = SpeechRecognition();
 
@@ -128,11 +134,11 @@ class _VoiceHomeState extends State<VoiceHome> {
                     _savingData();
 
                     //url to send the post request to
-                    final url = 'http://127.0.0.1:5000/name';
+                    final url = 'http://127.0.0.1:5000/';
 
                     //sending a post request to the url
                     final response = await http.post(Uri.parse(url),
-                        body: json.encode({'name': name}));
+                        body: json.encode({'name': resultText}));
                   },
                   child: Text("Send Text to Database"),
                   color: kPrimaryLightColor,

@@ -44,6 +44,6 @@
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Recognise and display the output</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Detect Speech input</string>
+	<string></string>
 </dict>
 </plist>
