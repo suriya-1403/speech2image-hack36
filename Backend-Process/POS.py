@@ -70,16 +70,16 @@ def pos(sentence: str):
     for j in w:
         if app.cnt1 == 0 and q == 0:
             app.cnt1 += 1
-            app.name1 = ', '.join(j.word)
-            app.tag1 = ', '.join(j.tag)
+            app.name1 = ''.join(j.word)
+            app.tag1 = ''.join(j.tag)
         elif app.cnt1 == 1 and q == 1:
             app.cnt1 += 1
-            app.name2 = ', '.join(j.word)
-            app.tag2 = ', '.join(j.tag)
+            app.name2 = ''.join(j.word)
+            app.tag2 = ''.join(j.tag)
         elif app.cnt1 == 2 and q == 2:
             app.cnt1 += 1
-            app.name3 = ', '.join(j.word)
-            app.tag3 = ', '.join(j.tag)
+            app.name3 = ''.join(j.word)
+            app.tag3 = ''.join(j.tag)
         q += 1
         # print(j.display())
 

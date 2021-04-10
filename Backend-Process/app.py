@@ -22,8 +22,11 @@ def index():
     # POS.main()
     # fetching the global response variable to manipulate inside the function
     global response
-    print(name1)
-    # POS.pos("Tiger bites Rabbit")
+
+    POS.pos("Tiger bites Rabbit")
+    print(name1+" : " + tag1)
+    print(name2 + " : " + tag2)
+    print(name3 + " : " + tag3)
     # checking the request type we get from the app
     if (request.method == 'POST'):
         request_data = request.data  # getting the response data
