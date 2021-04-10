@@ -29,6 +29,8 @@ class _VoiceHomeState extends State<VoiceHome> {
   bool _isListening = false;
   final _formkey = GlobalKey<FormState>();
   String resultText = "Tiger bites rabbit";
+  String textboc="Welcome to EaseEdu ,This app is built made for Deaf or hard-of-hearing students. This app performs an visual representation via images based on the input given as voice by Users."; 
+  String textboc2= "Go ahead and give a try below !!";
 
   @override
   void initState() {
@@ -95,6 +97,24 @@ class _VoiceHomeState extends State<VoiceHome> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20.0,0.0,0.0,0.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        textboc,
+                        style: TextStyle(fontSize: 15,color: Colors.red[300]),),
+                        SizedBox(
+                          height: size.height * 0.07,
+                        ),
+                      Text(textboc2,
+                        style: TextStyle(fontSize: 15,color: kPrimaryColor),),
+                      SizedBox(
+                        height: size.height * 0.04,
+                      ),
+                    ],
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -135,6 +155,9 @@ class _VoiceHomeState extends State<VoiceHome> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: size.height * 0.04,
+                ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
@@ -149,6 +172,9 @@ class _VoiceHomeState extends State<VoiceHome> {
                     resultText,
                     style: TextStyle(fontSize: 24.0,color: Colors.white),
                   ),
+                ),
+                SizedBox(
+                  height: size.height * 0.08,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
