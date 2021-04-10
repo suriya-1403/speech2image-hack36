@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:speech2image/Screens/Text2Image/Text2ImageScreen.dart';
 import 'package:speech2image/constants.dart';
 import 'package:speech_recognition/speech_recognition.dart';
 import 'package:http/http.dart' as http;
@@ -139,6 +140,10 @@ class _VoiceHomeState extends State<VoiceHome> {
                     //sending a post request to the url
                     final response = await http.post(Uri.parse(url),
                         body: json.encode({'name': resultText}));
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Text2Image();
+                  }));
                   },
                   child: Text("Send Text to Database"),
                   color: kPrimaryLightColor,
