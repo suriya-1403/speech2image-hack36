@@ -16,7 +16,7 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Welcome to Hackathon",
+              "Welcome to easƎEdu",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -24,6 +24,7 @@ class Body extends StatelessWidget {
             ),
             SvgPicture.asset(
               "asserts/icons/chat.svg",
+              // "asserts/images/main_icon.png",
               height: size.height * 0.45,
             ),
             SizedBox(
@@ -32,14 +33,9 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "Login",
               press: () {
-                Navigator.push(
-                  context, 
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginScreen();
-                    }
-                  )
-                );
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return LoginScreen();
+                }));
               },
             ),
             RoundedButton(
@@ -47,14 +43,9 @@ class Body extends StatelessWidget {
               color: kPrimaryLightColor,
               textColor: Colors.black,
               press: () {
-                Navigator.push(
-                  context, 
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpScreen();
-                    }
-                  )
-                );
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SignUpScreen();
+                }));
               },
             )
           ],

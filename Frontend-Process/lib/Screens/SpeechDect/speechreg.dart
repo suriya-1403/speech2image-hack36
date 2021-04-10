@@ -4,12 +4,14 @@ import 'package:speech2image/constants.dart';
 import 'package:speech_recognition/speech_recognition.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 class MyAppA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
+
       home: VoiceHome(),
       debugShowCheckedModeBanner: false,
     );
@@ -66,91 +68,114 @@ class _VoiceHomeState extends State<VoiceHome> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        height: size.height,
+        width: double.infinity,
+        child: Stack(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                FloatingActionButton(
-                  child: Icon(Icons.cancel),
-                  mini: true,
-                  backgroundColor: Colors.deepOrange,
-                  onPressed: () {
-                    if (_isListening)
-                      _speechRecognition.cancel().then(
-                            (result) => setState(() {
-                              _isListening = result;
-                              resultText = "";
-                            }),
-                          );
-                  },
-                ),
-                FloatingActionButton(
-                  child: Icon(Icons.mic),
-                  onPressed: () {
-                    if (_isAvailable && !_isListening)
-                      _speechRecognition
-                          .listen(locale: "en_US")
-                          .then((result) => print('$result'));
-                  },
-                  backgroundColor: Colors.pink,
-                ),
-                FloatingActionButton(
-                  child: Icon(Icons.stop),
-                  mini: true,
-                  backgroundColor: Colors.deepPurple,
-                  onPressed: () {
-                    if (_isListening)
-                      _speechRecognition.stop().then(
-                            (result) => setState(() => _isListening = result),
-                          );
-                  },
-                ),
-              ],
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Image.asset(
+                "asserts/images/signup_top.png",
+                width: size.width * 0.4,
+              )
             ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              decoration: BoxDecoration(
-                color: Colors.cyanAccent[100],
-                borderRadius: BorderRadius.circular(6.0),
-              ),
-              padding: EdgeInsets.symmetric(
-                vertical: 8.0,
-                horizontal: 12.0,
-              ),
-              child: Text(
-                resultText,
-                style: TextStyle(fontSize: 24.0),
-              ),
+          Positioned(
+              bottom: 0,
+              right: 0,
+              child: Image.asset(
+                "asserts/images/login_bottom.png",
+                width: size.width * 0.4,
+              )
             ),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                FlatButton(
-                  onPressed: () async {
-                    //validating the form and saving it
-                    _savingData();
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    FloatingActionButton(
+                      child: Icon(Icons.cancel),
+                      mini: true,
+                      backgroundColor: Colors.orange[600],
+                      onPressed: () {
+                        if (_isListening)
+                          _speechRecognition.cancel().then(
+                                (result) => setState(() {
+                                  _isListening = result;
+                                  resultText = "";
+                                }),
+                              );
+                      },
+                    ),
+                    FloatingActionButton(
+                      child: Icon(Icons.mic),
+                      onPressed: () {
+                        if (_isAvailable && !_isListening)
+                          _speechRecognition
+                              .listen(locale: "en_US")
+                              .then((result) => print('$result'));
+                      },
+                      backgroundColor: Colors.cyan[800],
+                    ),
+                    FloatingActionButton(
+                      child: Icon(Icons.stop),
+                      mini: true,
+                      backgroundColor: Colors.red[800],
+                      onPressed: () {
+                        if (_isListening)
+                          _speechRecognition.stop().then(
+                                (result) => setState(() => _isListening = result),
+                              );
+                      },
+                    ),
+                  ],
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  decoration: BoxDecoration(
+                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(6.0),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 12.0,
+                  ),
+                  child: Text(
+                    resultText,
+                    style: TextStyle(fontSize: 24.0,color: Colors.white),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: () async {
+                        //validating the form and saving it
+                        _savingData();
 
-                    //url to send the post request to
-                    final url = 'http://127.0.0.1:5000/';
+                        //url to send the post request to
+                        final url = 'http://127.0.0.1:5000/';
 
-                    //sending a post request to the url
-                    final response = await http.post(Uri.parse(url),
-                        body: json.encode({'name': resultText}));
+                        //sending a post request to the url
+                        final response = await http.post(Uri.parse(url),
+                            body: json.encode({'name': resultText}));
 
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return Text2Image();
-                  }));
-                  },
-                  child: Text("Send Text to Database"),
-                  color: kPrimaryLightColor,
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return Text2Image();
+                      }));
+                      },
+                      child: Text("Send Text to Database"),
+                      color: kPrimaryLightColor,
+                    )
+                  ],
                 )
               ],
-            )
+            ),
           ],
         ),
       ),
