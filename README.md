@@ -11,10 +11,10 @@ In this fast-moving world, Educations plays an important life among students. He
 In this project, we created an app called “ Ease Edu “ completely made for kids under the age of 10 who are Deaf or hard-of-hearing students. This app performs a visual representation via images based on the input given as voice by teachers. This app enhances the understanding capacity of concepts taught and develops interest among the students. Teachers can bridge this gap by being flexible in the way that they respond to the educational concerns of their deaf students
   
 ## Demo Video Link:
-  <a href="https://youtu.be/dQw4w9WgXcQ">https://youtu.be/dQw4w9WgXcQ</a>
+  <a href="https://youtu.be/xfZDtPcOo8g">Youtube Video Link here</a>
   
 ## Presentation Link:
-  <a href="https://docs.google.com/presentation/d/1NBwobnxofl2CU8NLJ1raEdCWP0ioFlPMOUPwTV6DdiU/edit?usp=sharing"> PowerPoint Presentation link here </a>
+  <a href="https://docs.google.com/presentation/d/1NBwobnxofl2CU8NLJ1raEdCWP0ioFlPMOUPwTV6DdiU/edit?usp=sharing"> PowerPoint Presentation Link here </a>
   
   
 ## Table of Contents:
