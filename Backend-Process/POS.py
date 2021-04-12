@@ -1,9 +1,7 @@
 import nltk
 import re
-
 import app
 import ease1
-
 
 # word=[]
 
@@ -81,7 +79,6 @@ def pos(sentence: str):
             app.name3 = ''.join(j.word)
             app.tag3 = ''.join(j.tag)
         q += 1
-        # print(j.display())
 
     for k in word:
         search_term = k
